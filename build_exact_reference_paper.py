@@ -140,52 +140,76 @@ def style_table(table):
 
 # ------------------------------------------------------------------------------
 # TITLE & AUTHOR GRID (Page 1 Top - Spanning full width)
-# Exactly matching the uploaded reference image!
+# Exactly matching the user's uploaded reference image layout!
 # ------------------------------------------------------------------------------
 p_title = doc.add_paragraph()
 p_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p_title.paragraph_format.space_before = Pt(0)
-p_title.paragraph_format.space_after = Pt(10)
+p_title.paragraph_format.space_after = Pt(12)
 p_title.paragraph_format.line_spacing = 1.15
 r_title = p_title.add_run("Physics-Informed Digital Twin and Decision-Calibrated Multi-Sensor Fusion for Resilient Induction Motor Fault Diagnosis Under Operational Uncertainty")
 set_font(r_title, size=18, bold=True)
 
-# 2x2 Author Grid matching the reference image layout:
-author_table = doc.add_table(rows=2, cols=2)
-author_table.alignment = WD_TABLE_ALIGNMENT.CENTER
-make_table_borderless(author_table)
+# Row 1: Two Professors (2 Columns)
+table_profs = doc.add_table(rows=1, cols=2)
+table_profs.alignment = WD_TABLE_ALIGNMENT.CENTER
+make_table_borderless(table_profs)
 
-authors_info = [
-    # Row 1: Left & Right
-    [
-        ("Vivek (Lead Author)", "Student / Research Scholar\nDepartment of Electrical & Computer Engineering\nAcademic Institution / University Name\nEmail: vivekviveka1204@gmail.com"),
-        ("Faculty Advisor (Guide)", "Associate Professor\nDepartment of Electrical & Computer Engineering\nAcademic Institution / University Name\nEmail: guide.advisor@university.edu")
-    ],
-    # Row 2: Left & Right
-    [
-        ("Industrial Research Collaborator", "Staff Research Engineer\nDepartment of Automation & Drive Systems\nSmart Industry Research Center"),
-        ("Technical Project Co-Guide", "Senior Scientist\nCenter for Cyber-Physical Systems & Digital Twins\nNational Industrial Automation Consortium")
-    ]
+profs = [
+    ("Dr. H P Srinivasa", "Professor and Principal\nT John Institute of Technology"),
+    ("Dr. P Bindhu Madhavi", "Professor and IQAC Head\nT John Institute of Technology")
 ]
 
-for r_idx, row_content in enumerate(authors_info):
-    for c_idx, (name, details) in enumerate(row_content):
-        cell = author_table.rows[r_idx].cells[c_idx]
-        cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
-        cell.paragraphs[0].paragraph_format.space_after = Pt(1)
-        r_name = cell.paragraphs[0].add_run(name)
-        set_font(r_name, size=10, bold=True)
-        
-        p_det = cell.add_paragraph()
-        p_det.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p_det.paragraph_format.space_after = Pt(8)
-        p_det.paragraph_format.line_spacing = 1.0
-        r_det = p_det.add_run(details)
-        set_font(r_det, size=9)
+for c_idx, (name, details) in enumerate(profs):
+    cell = table_profs.rows[0].cells[c_idx]
+    cell.width = Inches(3.6)
+    p_name = cell.paragraphs[0]
+    p_name.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_name.paragraph_format.space_after = Pt(1)
+    r_name = p_name.add_run(name)
+    set_font(r_name, size=10, bold=True)
+    
+    p_det = cell.add_paragraph()
+    p_det.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_det.paragraph_format.space_after = Pt(6)
+    p_det.paragraph_format.line_spacing = 1.0
+    r_det = p_det.add_run(details)
+    set_font(r_det, size=9)
+
+p_mid = doc.add_paragraph()
+p_mid.paragraph_format.space_before = Pt(2)
+p_mid.paragraph_format.space_after = Pt(2)
+
+# Row 2: Three Students (3 Columns)
+table_students = doc.add_table(rows=1, cols=3)
+table_students.alignment = WD_TABLE_ALIGNMENT.CENTER
+make_table_borderless(table_students)
+
+students = [
+    ("Vivek S", "Student\nT John Institute of Technology"),
+    ("Divyashree SS", "Student\nT John Institute of Technology"),
+    ("Yash Sajesh", "Student\nT John Institute of Technology")
+]
+
+for c_idx, (name, details) in enumerate(students):
+    cell = table_students.rows[0].cells[c_idx]
+    cell.width = Inches(2.4)
+    p_name = cell.paragraphs[0]
+    p_name.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_name.paragraph_format.space_after = Pt(1)
+    r_name = p_name.add_run(name)
+    set_font(r_name, size=10, bold=True)
+    
+    p_det = cell.add_paragraph()
+    p_det.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_det.paragraph_format.space_after = Pt(10)
+    p_det.paragraph_format.line_spacing = 1.0
+    r_det = p_det.add_run(details)
+    set_font(r_det, size=9)
 
 # Space before the two-column body
 p_space = doc.add_paragraph()
-p_space.paragraph_format.space_before = Pt(4)
+p_space.paragraph_format.space_before = Pt(2)
 p_space.paragraph_format.space_after = Pt(0)
 
 # ------------------------------------------------------------------------------
