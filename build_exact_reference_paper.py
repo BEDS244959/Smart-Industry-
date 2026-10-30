@@ -156,8 +156,8 @@ table_profs.alignment = WD_TABLE_ALIGNMENT.CENTER
 make_table_borderless(table_profs)
 
 profs = [
-    ("Dr. H P Srinivasa", "Professor and Principal\nT John Institute of Technology"),
-    ("Dr. P Bindhu Madhavi", "Professor and IQAC Head\nT John Institute of Technology")
+    ("Dr. P Bindhu Madhavi", "Professor and IQAC Head\nT John Institute of Technology"),
+    ("Dr. H P Srinivasa", "Professor and Principal\nT John Institute of Technology")
 ]
 
 for c_idx, (name, details) in enumerate(profs):

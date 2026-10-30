@@ -123,14 +123,14 @@ set_font(r_title, size=18, bold=True)
 # ------------------------------------------------------------------------------
 # AUTHOR BLOCK (NO TABLES! Pure Native IEEE Tab-Stop Paragraphs)
 # ------------------------------------------------------------------------------
-# Row 1: Two Professors / Principals
+# Row 1: Two Professors / Principals (Interchanged: Dr. P Bindhu Madhavi on Left, Dr. H P Srinivasa on Right)
 # Page text width: 7.2 in. Center tabs at 1.8 in and 5.4 in.
 p_r1_name = doc.add_paragraph()
 p_r1_name.paragraph_format.tab_stops.add_tab_stop(Inches(1.8), WD_TAB_ALIGNMENT.CENTER)
 p_r1_name.paragraph_format.tab_stops.add_tab_stop(Inches(5.4), WD_TAB_ALIGNMENT.CENTER)
 p_r1_name.paragraph_format.space_after = Pt(1)
 p_r1_name.paragraph_format.line_spacing = 1.0
-r_p1 = p_r1_name.add_run("\tDr. H P Srinivasa\tDr. P Bindhu Madhavi")
+r_p1 = p_r1_name.add_run("\tDr. P Bindhu Madhavi\tDr. H P Srinivasa")
 set_font(r_p1, size=10, bold=True)
 
 p_r1_desig = doc.add_paragraph()
@@ -138,7 +138,7 @@ p_r1_desig.paragraph_format.tab_stops.add_tab_stop(Inches(1.8), WD_TAB_ALIGNMENT
 p_r1_desig.paragraph_format.tab_stops.add_tab_stop(Inches(5.4), WD_TAB_ALIGNMENT.CENTER)
 p_r1_desig.paragraph_format.space_after = Pt(1)
 p_r1_desig.paragraph_format.line_spacing = 1.0
-r_p2 = p_r1_desig.add_run("\tProfessor and Principal\tProfessor and IQAC Head")
+r_p2 = p_r1_desig.add_run("\tProfessor and IQAC Head\tProfessor and Principal")
 set_font(r_p2, size=9.5)
 
 p_r1_inst = doc.add_paragraph()
